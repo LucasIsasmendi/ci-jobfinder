@@ -13,7 +13,7 @@ exports.seedJobs = function() {
 			Job.create({title:'Developer', description:'MEAN.js DevOps with AWS skills'});
 			Job.create({title:'Designer', description:'HTML5 CSS3 skills and video/tutorial'});
 			Job.create({title:'Customer Support', description:'Chinese customer support by phone and email'});
-			Job.create({title:'Financial', description:'Startup Account, GL'});
+			Job.create({title:'Financial', description:'Startup Account, GL, Analyst'});
 		}
 	})
 }

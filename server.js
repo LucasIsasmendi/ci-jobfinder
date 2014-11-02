@@ -17,8 +17,10 @@ app.get('/api/jobs', function(req, res) {
 app.get('*', function(req, res) {
 	res.render('index');
 });
+ 
 
-mongoose.connect('mongodb://localhost/jobfinder');
+//mongoose.connect('mongodb://localhost/jobfinder');
+mongoose.connect('mongodb://lucasai:2014lucasai@ds049180.mongolab.com:49180/gjobfinder');
 
 var con = mongoose.connection;
 con.once('open', function() {
