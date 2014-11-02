@@ -4,13 +4,15 @@
   "description": "Continuous Integration and Deployment for AngularJs and Nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Lucas Isasmendi",
   "license": "ISC",
   "dependencies": {
     "express": "~4.10.1",
-    "jade": "~1.7.0"
+    "jade": "~1.7.0",
+    "mongoose": "~3.8.18"
   },
   "devDependencies": {
     "bower": "~1.3.12"
