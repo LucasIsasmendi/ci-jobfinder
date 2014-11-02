@@ -6,6 +6,7 @@ var app = express();
 
 app.set('views', __dirname);
 app.set('view engine', 'jade');
+//app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/api/jobs', function(req, res) {
@@ -16,6 +17,7 @@ app.get('/api/jobs', function(req, res) {
 
 app.get('*', function(req, res) {
 	res.render('index');
+	//res.render('index.html');
 });
 
 //mongoose.connect('mongodb://localhost/jobfinder');
