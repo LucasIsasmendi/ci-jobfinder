@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "~4.10.1",
     "jade": "~1.7.0",
-    "mongoose": "~3.8.18"
+    "mongoose": "~3.8.18",
+    "bluebird": "~2.3.10"
   },
   "devDependencies": {
     "bower": "~1.3.12",
