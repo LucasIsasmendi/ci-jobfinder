@@ -2,15 +2,32 @@ var express = require('express');
 var app = express();
 var expect = require('chai').expect;
 var request = require('supertest');
+var Promise = require('bluebird');
 
 var dataSavedJob;
 
 var db = {
+	findJobs: function(){
+		return new Promise( function(resolve, reject) {
+			resolve(["hi"]);
+		});
+	},
 	saveJob: function(job) {
 		dataSavedJob = job;
 	}
 };
 var jobService = require('../jobs-service')(db, app);
+
+describe("get jobs", function() {
+	it("get should give me a json list of jobs", function(done){
+		request(app).get('/api/jobs')
+		.expect('Content-Type', /json/)
+		.end(function(err, res){
+			expect(res.body).to.be.a('Array');
+			done();
+		});
+	});
+});
 
 describe("save jobs", function(){
 	it("should validate that title is greater than 4 characters");
