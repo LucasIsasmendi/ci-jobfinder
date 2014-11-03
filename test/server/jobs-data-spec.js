@@ -11,19 +11,31 @@ function resetJobs(callback) {
 	});
 }
 
-describe("get jobs", function(){
+describe("db get jobs", function(){
+	var job = {title:'Designer', description:'HTML5 CSS3 skills and video/tutorial'};
 	var jobs;
+
+	function saveTestJob() {
+		return jobsData.saveJob(job);
+	}
 
 	before(function(done) {
 		jobsData.connectDB('mongodb://localhost/jobfinder')
 			.then(resetJobs)
-			.then(jobsData.seedJobs)
+			.then(function(){return jobsData.saveJob(job) })
 			.then(jobsData.findJobs)
-			.then(function(collection) {
+			.then(function setJobs(collection) {
 				jobs = collection;
 				done();
 			});			
-	})
+	});
+	after(function(){
+		mongoose.connection.close();
+	});
+	it("should have one job after saving one job", function(){
+		expect(jobs).to.have.length(1);
+	});
+
 	it("should never be empty since jobs are seeded", function(){
 		expect(jobs.length).to.be.at.least(1);
 	});
