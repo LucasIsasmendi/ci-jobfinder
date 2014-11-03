@@ -16,7 +16,7 @@ var db = {
 		dataSavedJob = job;
 	}
 };
-var jobService = require('../jobs-service')(db, app);
+var jobService = require('../../jobs-service')(db, app);
 
 describe("get jobs", function() {
 	it("get should give me a json list of jobs", function(done){
